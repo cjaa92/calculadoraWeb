@@ -1,13 +1,25 @@
+body{
+    background-color: slategray;
+}
 
 @media only screen and (max-width: 600px) {
     .jumbotron {
-        margin-top: 5vh!important;
+        margin-top: 20vh!important;
+    }
+
+    .bodyBtns{
+        width: 97%;
+        margin: 2% 1%;
     }
 }
 
 .jumbotron {
-    margin-top: 25vh;
+    margin-top: 20vh;
     border-radius: 25px;
+    background-color: #252525;
+    -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.75);
 }
 
 .topDisplay{
@@ -28,6 +40,7 @@
     width: 96%;
     margin: 0 2%;
     padding-right: 5px;
+    margin-bottom: 5vh;
     -webkit-box-shadow: inset 10px 0px 5px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 10px 0px 5px -8px rgba(0,0,0,0.75);
     box-shadow: inset 10px 0px 5px -8px rgba(0,0,0,0.75);
@@ -39,22 +52,48 @@
 
 .btn-num{
     margin: 1% 1%;
-    width: 30%!important;
+    width: 22%!important;
     height: 5vh!important;
     max-width: 100%;
     padding: 0;
-    background-color: blue;
-    color: white;
+    background-color: #dfe1e5;
+    color: #252525;
     border-radius: 25px;
+    font-size: 1.5em;
 }
 
 .btn-num:hover{
-    background-color: #1212ce;
-    color: white;
+    background-color: #aaacb1;
+    color: #252525;
 }
 
 .btn-num:active{
-    background-color: #1212ce;
+    background-color: #aaacb1;
+    color: #252525;
+    -webkit-box-shadow: inset 10px 10px 5px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 10px 10px 5px -8px rgba(0,0,0,0.75);
+    box-shadow: inset 10px 10px 5px -8px rgba(0,0,0,0.75);
+}
+
+.btn-2num{
+    margin: 1% 1%;
+    width: 46.7%!important;
+    height: 5vh!important;
+    max-width: 100%;
+    padding: 0;
+    background-color: #96999e;
+    color: white;
+    border-radius: 25px;
+    font-size: 1.5em;
+}
+
+.btn-2num:hover{
+    background-color: #67696b;
+    color: white;
+}
+
+.btn-2num:active{
+    background-color: #67696b;
     color: white;
     -webkit-box-shadow: inset 10px 10px 5px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 10px 10px 5px -8px rgba(0,0,0,0.75);
@@ -62,6 +101,22 @@
 }
 
 .opBtn{
-    width: 46%!important;
-    margin: 6% 1%;
+    background-color:orange!important;
+    font-weight: bolder;
+    font-size: 1.7em;
+    color: white;
+}
+
+.opBtn:hover{
+    color: white!important;
+}
+
+.opBtn:active{
+    color: white!important;
+}
+
+.bodyBtns{
+    width: 98%;
+    margin: 2% 2%;
+    padding: 0;
 }

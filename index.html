@@ -10,33 +10,36 @@
         <script src="https://kit.fontawesome.com/1dd99076a2.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container calculatorBody">
+        <div class="container">
             <div class="jumbotron">
                 <h2 class="topDisplay">(4+5)</h2>
                 <h1 class="bottomDisplay">9</h1>
-                <div class="row"  style="margin-top: 15px;">
-                    <div class="col-xl-8 mx-0">
-                        <button type="button" name="numBtn" id="bn1" onclick="" class="btn btn-num col-xl-3">1</button>
-                        <button type="button" name="numBtn" id="bn2" onclick="" class="btn btn-num col-xl-3">2</button>
-                        <button type="button" name="numBtn" id="bn3" onclick="" class="btn btn-num col-xl-3">3</button>
-                        <button type="button" name="numBtn" id="bn4" onclick="" class="btn btn-num col-xl-3">4</button>
-                        <button type="button" name="numBtn" id="bn5" onclick="" class="btn btn-num col-xl-3">5</button>
-                        <button type="button" name="numBtn" id="bn6" onclick="" class="btn btn-num col-xl-3">6</button>
-                        <button type="button" name="numBtn" id="bn7" onclick="" class="btn btn-num col-xl-3">7</button>
-                        <button type="button" name="numBtn" id="bn8" onclick="" class="btn btn-num col-xl-3">8</button>
-                        <button type="button" name="numBtn" id="bn9" onclick="" class="btn btn-num col-xl-3">9</button>
-                        <button type="button" name="numBtn" id="bnN" onclick="" class="btn btn-num col-xl-3">-</button>
-                        <button type="button" name="numBtn" id="bn0" onclick="" class="btn btn-num col-xl-3">0</button>
-                        <button type="button" name="numBtn" id="bnD" onclick="" class="btn btn-num col-xl-3">.</button>
+                <div class="container bodyBtns">
+                    <div style="width: /*74.4%*/ 100%; padding: 0; margin: 0; display: inline-block;">
+                        
+                        <button type="button" name="numBtn" id="bnDel" onclick="" class="btn btn-2num"><i class="fas fa-backspace fa-flip-horizontal"></i></button>
+                        <button type="button" name="numBtn" id="bnClr" onclick="" class="btn btn-num" style="background: red; border-color:brown;"><b>C</b></button>
+                        <button type="button" name="numBtn" id="bnEnt" onclick="" class="btn btn-num opBtn">÷</button>
+                        <button type="button" name="numBtn" id="bn7" onclick="" class="btn btn-num">7</button>
+                        <button type="button" name="numBtn" id="bn8" onclick="" class="btn btn-num">8</button>
+                        <button type="button" name="numBtn" id="bn9" onclick="" class="btn btn-num">9</button>
+                        <button type="button" name="numBtn" id="bnMul" onclick="" class="btn btn-num opBtn">x</button>
+                        <button type="button" name="numBtn" id="bn4" onclick="" class="btn btn-num">4</button>
+                        <button type="button" name="numBtn" id="bn5" onclick="" class="btn btn-num">5</button>
+                        <button type="button" name="numBtn" id="bn6" onclick="" class="btn btn-num">6</button>
+                        <button type="button" name="numBtn" id="bnMen" onclick="" class="btn btn-num opBtn">—</button>
+                        <button type="button" name="numBtn" id="bn1" onclick="" class="btn btn-num">1</button>
+                        <button type="button" name="numBtn" id="bn2" onclick="" class="btn btn-num">2</button>
+                        <button type="button" name="numBtn" id="bn3" onclick="" class="btn btn-num">3</button>
+                        <button type="button" name="numBtn" id="bnMas" onclick="" class="btn btn-num opBtn">+</button>
+                        <button type="button" name="numBtn" id="bn0" onclick="" class="btn btn-num">0</button>
+                        <button type="button" name="numBtn" id="bnPun" onclick="" class="btn btn-num">.</button>
+                        <button type="button" name="numBtn" id="bnNeg" onclick="" class="btn btn-num">(-)</button>
+                        <button type="button" name="numBtn" id="bnRes" onclick="" class="btn btn-num opBtn" style="background-color: blue!important;">=</button>
                     </div>
-                    <div class="col-xl-4">
-                        <button type="button" name="opBtn" id="bnP" onclick="" class="btn btn-primary clsBtn col-xl-12">C</button>
-                        <button type="button" name="opBtn" id="bnP" onclick="" class="btn btn-primary opBtn col-xl-6">+</button>
-                        <button type="button" name="opBtn" id="bnS" onclick="" class="btn btn-primary opBtn col-xl-6">-</button>
-                        <button type="button" name="opBtn" id="bnDiv" onclick="" class="btn btn-primary opBtn col-xl-6">÷</button>
-                        <button type="button" name="opBtn" id="bnMul" onclick="" class="btn btn-primary opBtn col-xl-6">x</button>
-                        <button type="button" name="opBtn" id="bnP" onclick="" class="btn btn-primary eqBtn col-xl-12">+</button>
-                    </div>
+                    <!--div style="width: 24.8%; padding: 0; margin: 0; background-color: yellow; display: none;">
+                        <a>b</a>
+                    </div-->
                 </div>
               </div>
         </div>
