@@ -62,7 +62,9 @@ function registerElement(newReg){
         isEnterHit = 1;
         enableDot = 1;
     } else{
-        alert("Introdujo un valor invalido...");
+        $("#message").html('<div class="alert alert-danger" role="alert">Introdujo un valor invalido...</div>');
+        $(".alert").delay(5000).slideUp(200, function () { $(this).alert("close"); });
+        //alert("Introdujo un valor invalido...");
         return 0;
     }
     evalOpsRealTime();
@@ -85,11 +87,15 @@ function evalOpsRealTime(){
             result = eval(op);
             if(!isFinite(result)){
                 result = "Error";
-                alert("Su resultado es indeterminado...")
+                $("#message").html('<div class="alert alert-danger" role="alert">Su resultado es indeterminado...</div>');
+                $(".alert").delay(5000).slideUp(200, function () { $(this).alert("close"); });
+                //alert("Su resultado es indeterminado...")
             }
         } catch(e){
             result = "Error";
-            alert("Existe un error en su operación...");
+            $("#message").html('<div class="alert alert-danger" role="alert">Existe un error en su operación...</div>');
+            $(".alert").delay(5000).slideUp(200, function () { $(this).alert("close"); });
+            //alert("Existe un error en su operación...");
         }
         $(`#result`).html(`${result}`);
         if(result != "Error" && isEnterHit){
