@@ -120,3 +120,12 @@ body{
     margin: 2% 2%;
     padding: 0;
 }
+
+.posi {
+    animation: typer 1s linear infinite;
+    color: teal;
+}
+
+@keyframes typer {  
+    50% { opacity: 0; }
+}
