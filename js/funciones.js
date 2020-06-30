@@ -1,20 +1,22 @@
 let runningOp = "", enableDot = true, result=0, isEnterHit = 0;
 
 function registerElement(newReg){
-    if(newReg.match(/[\d+x÷\-]/) && isEnterHit){
+    if(newReg.match(/[\d\.]/) && isEnterHit){
         runningOp = "";
     }
     isEnterHit = 0;
-    let lastElement = runningOp.split("").pop(); // Split para identificar el ultimo elemento insertado
+    let lastElement = (runningOp == 0)?"0":runningOp.split("").pop(); // Split para identificar el ultimo elemento insertado
     let lastNumber = runningOp.split(/[+x÷\-]/).pop(); 
     if(runningOp == "0" && newReg == "0"){ // validacion en caso de tener un cero inicial
         return 0;
-    } else if(newReg == "." && enableDot && lastElement.match(/[+x÷\-]/)){ //Validacion para punto en caso de que sea despues de un signo
+    } else if(newReg == "." && enableDot){ //Validacion para punto en caso de que sea despues de un signo
         enableDot = false;
-        runningOp = runningOp + "0.";
-    } else if(newReg == "." && enableDot && !lastElement.match(/[+x÷\-]/)){//Validacion de punto en caso de que no se haya puesto uno y con digitos previamente
-        enableDot = false;
-        runningOp = runningOp + ".";
+        if(runningOp == "" || lastElement.match(/[+x÷\-]/))
+            runningOp = runningOp + "0.";
+        else 
+            runningOp = runningOp + ".";
+    } else if(newReg == "." && !enableDot){ //Validacion para punto en caso de que sea despues de un signo
+        return 0;
     } else if(newReg == "NEG"){ // Seccion de Negativo
         if(lastElement == ")"){ // En caso de que ya exista en negativo 
             runningOp = runningOp.slice(0,runningOp.length - lastNumber.length) + runningOp.slice(runningOp.length - lastNumber.length,runningOp.length).replace(/[\(\)\-]/g,'');
@@ -56,6 +58,7 @@ function registerElement(newReg){
         enableDot = true; // con signo nuevo se resetea el poder poner punto
     }  else if(newReg == "="){ // Seccion para evaluar
         isEnterHit = 1;
+        enableDot = 1;
     } else{
         alert("Introdujo un valor invalido...");
         return 0;
@@ -66,26 +69,32 @@ function registerElement(newReg){
 
 function evalOpsRealTime(){
     $(`#runningOp`).html(`${runningOp}<span class="posi">|</span>`);
-    let lastElement = runningOp.split("").pop()
     let op = runningOp.replace('(-)', '');
-    if(lastElement.match(/[x÷]/)){
-        op = op + "1";
-    } else if(lastElement.match(/[+\-]/)){
-        op = op + "0";
-    }
-    op = op.replace(/x/g,"*").replace(/÷/g,"/");
-    try{
-        result = eval(op);
-        if(!isFinite(result)){
-            result = "Error";
-            alert("Su resultado es indeterminado...")
+    let lastElement = op.split("").pop()
+    if(runningOp != ""){
+        if(lastElement.match(/[x÷]/)){
+            op = op + "1";
+        } else if(lastElement.match(/[+\-]/)){
+            op = op + "0";
         }
-    } catch(e){
-        result = "Error";
-        alert("Existe un error en su operación...");
-    }
-    $(`#result`).html(`${result}`);
-    if(result != "Error" && isEnterHit){
-        runningOp = result;
+        op = op.replace(/x/g,"*").replace(/÷/g,"/");
+        try{
+            //console.log(op);
+            result = eval(op);
+            if(!isFinite(result)){
+                result = "Error";
+                alert("Su resultado es indeterminado...")
+            }
+        } catch(e){
+            result = "Error";
+            alert("Existe un error en su operación...");
+        }
+        $(`#result`).html(`${result}`);
+        if(result != "Error" && isEnterHit){
+            runningOp = result + "";
+            $(`#runningOp`).html(`${runningOp}<span class="posi">|</span>`);
+        }
+    } else {
+        $(`#result`).html(`0`);
     }
 }
