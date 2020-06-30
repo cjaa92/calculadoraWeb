@@ -79,7 +79,7 @@ function evalOpsRealTime(){
         }
         op = op.replace(/x/g,"*").replace(/÷/g,"/");
         try{
-            console.log(op);
+            //console.log(op);
             result = eval(op);
             if(!isFinite(result)){
                 result = "Error";
