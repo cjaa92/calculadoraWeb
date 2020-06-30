@@ -46,6 +46,8 @@ function registerElement(newReg){
     } else if(newReg.match(/\d/)){ // Seccion de agregar digitos
         if(lastElement == ")"){ // Caso para cuando existe un negativo
             runningOp = runningOp.slice(0,runningOp.length - 1) + newReg + ")";
+        } else if(lastNumber == "0"){
+            runningOp = runningOp.slice(0,runningOp.length - 1) + newReg;
         } else {
             runningOp = runningOp + newReg;
         }
@@ -79,7 +81,7 @@ function evalOpsRealTime(){
         }
         op = op.replace(/x/g,"*").replace(/÷/g,"/");
         try{
-            console.log(op);
+            //console.log(op);
             result = eval(op);
             if(!isFinite(result)){
                 result = "Error";
@@ -97,4 +99,70 @@ function evalOpsRealTime(){
     } else {
         $(`#result`).html(`0`);
     }
+}
+
+
+window.onkeyup = function(e) { // Seccion de captura de Keyboard
+    let key = e.keyCode ? e.keyCode : e.which;
+    let valKey = "";
+    switch(key){
+        case 8:
+            valKey = "DEL";
+            break;
+        case 13:
+        case 187:
+            valKey = (e.key=="+")?"+":"=";
+            break;
+        case 46:
+            valKey = "C";
+            break;
+        case 190:
+        case 110:
+            valKey = ".";
+            break;
+        case 107:
+            valKey = "+";
+            break;
+        case 189:
+        case 109:
+            valKey = "-";
+            break;
+        case 191:
+        case 111:
+            valKey = "÷";
+            break;
+        case 56:
+        case 88:
+        case 106:
+            valKey = (e.key=="8")?"8":"x";
+            break;
+        case 48:
+        case 49:
+        case 50:
+        case 51:
+        case 52:
+        case 53:
+        case 54:
+        case 55:
+        case 56:
+        case 57:
+            valKey = (key - 48) + "";
+            break;
+        case 96:
+        case 97:
+        case 98:
+        case 99:
+        case 100:
+        case 101:
+        case 102:
+        case 103:
+        case 104:
+        case 105:
+            valKey = (key - 96) + "";
+            break;
+        default:
+            return 0;
+    }
+    //console.log(valKey);
+    registerElement(valKey);
 }
